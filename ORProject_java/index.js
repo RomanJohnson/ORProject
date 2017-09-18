@@ -1,3 +1,4 @@
+// const app = new App()
 
 document.addEventListener('DOMContentLoaded', ()=>{
   // alert('first!')
@@ -36,8 +37,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     // console.log(orName.value)
 
     let newOR = new OR(orName.value, orAddress.value)
-    debugger
-    console.log(OR.all())
+
+    // console.log(OR.all())
     //then renderNewOR() to the page
     OR.renderAll()
 

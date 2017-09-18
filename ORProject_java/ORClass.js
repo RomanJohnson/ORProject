@@ -11,7 +11,7 @@ const OR = (function(){
       this.cases = []
       this.name = ORName;
       this.id = ++currentORId;
-      this.all = allORs
+      // this.all = allORs
       allORs.push(this);
       let htmlMonstrosity = (
         `<li class="OR" data-id="${this.id}">${ORName}</li><p>
@@ -46,8 +46,12 @@ const OR = (function(){
       let caseid = (this.cases.length +1)
       let thisCase = new Case(this.name, caseid, surgeon, anesthesiologist, procedure)
       this.cases.push(thisCase)
-      console.log(thisCase)
+
+      ORMaster(thisCase)
+      // console.log(thisCase)
       // debugger
+      //I want to push 'this' to fetch post the object every time a new case is made. 'this' being the entire OR and all of it's cases.
+
       // console.log(thisCase)
     }
 

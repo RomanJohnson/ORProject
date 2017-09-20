@@ -6,9 +6,9 @@ const OR = (function(){
     // let casesId = 0
 
     constructor (ORName, ORAddress){
-      let caseID = 0
+      // let caseID = 0  this doesn't need to be here, will come from database
       this.address = ORAddress
-      this.cases = []
+      // this.cases = []  this will come from the server too
       this.name = ORName;
       this.id = ++currentORId;
       // this.all = allORs

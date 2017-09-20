@@ -12,6 +12,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
   let orAddress = document.getElementById('OR_address')
   let submitButton = document.getElementById('submitButton')
 
+  //create a new OR instance:
+  orDiv.addEventListener('submit', ()=>{
+    event.preventDefault()
+    // orMaker(orName.value)
+    // console.log(orName.value)
+
+    //WHEN SUBMIT BUTTON IS CLICKED, ORNAME AND OR ADDRESS SHOULD BE SENT DIRECTLY TO THE ORMASTER FUNCTION, WHICH WILL SEND INFO TO SERVER AS JSON
+    ORMaster(orName.value, orAddress.value);
+    // let newOR = new OR(orName.value, orAddress.value)
+
+    // console.log(OR.all())
+    //then renderNewOR() to the page
+    // OR.renderAll()   - this is old, remnant from when I tried to do everything in JS
+
+    //resetting the forms to empty after submitted:
+    orAddress.value = null
+    orName.value = null
+
+  })
+
 //create a new case when submitCase is pushed
   $('body').on('click', '#submitCase',(event)=>{
     event.preventDefault()
@@ -28,22 +48,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let or = OR.all()[0]//find the real or object by name orsAll.find later
     or.makeNewCase(surgeonValue, anesthesiologistVal, procedureName)
     // console.log($('#surgeonName').val())
-  })
-
-  //create a new OR instance:
-  orDiv.addEventListener('submit', ()=>{
-    event.preventDefault()
-    // orMaker(orName.value)
-    // console.log(orName.value)
-
-    let newOR = new OR(orName.value, orAddress.value)
-
-    // console.log(OR.all())
-    //then renderNewOR() to the page
-    OR.renderAll()
-
-    orName.value = null
-    // alert(orName.value)
   })
 
 //create the slide toggle function on individual ORs

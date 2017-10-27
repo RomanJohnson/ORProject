@@ -8,30 +8,68 @@
         background-color: lightblue;
     }
     .initiallyHidden { display: none; }
+    .left-div{
+      width: 40%;
+      float: left;
+    }
+    .right-div{
+      width: 40%;
+      display: none;
+    }
+    .hide{
+      display: none;
+    }
 
     </style>
     <meta charset="utf-8">
     <title>Dr.Johnson's OR Scheduler</title>
   </head>
   <body>
-    <div id = 'OR_Maker' class="">
-      <form id= 'OR_Form' class="" action="index.html" method="post">
-        <h2 for="">Register a new OR name and address:</h2>
-        <input id= 'OR_name'  type="text" placeholder ='type name of OR here' name="" value=""><br>
-        <input id= 'OR_address'  type="text" placeholder ='type address of OR here' name="" value=""><br>
-        <input id ='submitButton' type="submit" name="" value="submit your Operating Room">
-      </form>
+   
+      <div id = 'OR_Maker' class="">
+        <form id= 'OR_Form' class="" action="index.html" method="post">
+          <h2 for="">Register a new OR name and address:</h2>
+          <input id= 'OR_HostName'  type="text" placeholder ='type name of the Physician who owns the OR here' name="" value=""><br>
+          <input id= 'OR_name'  type="text" placeholder ='type name of OR here' name="" value=""><br>
+          <input id= 'OR_address'  type="text" placeholder ='type address of OR here' name="" value=""><br>
+          <input id ='submitButton' type="submit" name="" value="submit your Operating Room">
+        </form>
+      </div>
+    <div class="left-div">
+      <h2>Operating Room list:</h2>
+      <h3>Click on an O.R. to Book a Case</h3>
+      <div id = 'OR_List' class="">
+        <!-- <ul>
+          <li>Placeholder OR</li> -->
+        </ul>
+      </div>
     </div>
-    <h2>Operating Room list:</h2>
-    <h3>Click on an O.R. to Book a Case</h3>
-    <div id = 'OR_List' class="">
-      <!-- <ul>
-        <li>Placeholder OR</li> -->
-      </ul>
-    </div>
-    <div id="allCasesHTML" class="">
+    <div class="right">
+        <form id= 'case_Form' class="hide" action="index.html" method="post">
+          <h2 for="">Schedule a case in <span class="orname"></span></h2>
+          <input id='procedure_name'  type="text" placeholder ='Procedure Name' name="" value="">
+          <br/>
+          <input id='surgeon_id'  type="text" placeholder='Surgeon Name'><br/>
+          <input id='anesthesiologist'  type="text" placeholder='Anesthesiologist Name'><br/>
+          <input type="hidden" id="or_id" />
+          <select id="case_time">
+            <option>Select Time</option>
+            <option value="10AM-11AM">10AM-11AM</option>
+            <option value="11AM-12PM">11AM-12PM</option>
+            <option value="12-1">12PM-1PM</option>
+            <option value="1-2">1PM-2PM</option>
+            <option value="2-3">2PM-3PM</option>
+            <option value="3-4">3PM-4PM</option>
+            <option value="4-5">4PM-5PM</option>
+            <option value="5-6">5PM-6PM</option>
+            <option value="6-7">6PM-7PM</option>
+            <option value="7-8">7PM-8PM</option>
+          </select><br/><br/>
+          <input id='submitCaseButton' type="submit" value="Submit Case">
+        </form>
+     </div>
 
-    </div>
+   
     <script type="text/javascript" src="ORMaster.js">
 
     </script>
@@ -39,5 +77,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="ORClass.js" charset="utf-8"></script>
     <script src="index.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        ORMaster();
+
+    </script>
+
   </body>
 </html>

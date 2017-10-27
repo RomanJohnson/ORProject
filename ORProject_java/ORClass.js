@@ -6,11 +6,11 @@ const OR = (function(){
     // let casesId = 0
 
     constructor (ORName, ORAddress){
-      // let caseID = 0  this doesn't need to be here, will come from database
+      let caseID = 0
       this.address = ORAddress
-      // this.cases = []  this will come from the server too
+      this.cases = []
       this.name = ORName;
-      this.id = ++currentORId;
+      // this.id = ++currentORId;
       // this.all = allORs
       allORs.push(this);
       let htmlMonstrosity = (
@@ -41,14 +41,13 @@ const OR = (function(){
         ORList.innerHTML = newHTML
     }
 
-     makeNewCase(surgeon, anesthesiologist, procedure){
+     makeNewCase(surgeon, anesthesiologist, procedure, caseTime, orId){
 
       let caseid = (this.cases.length +1)
       let thisCase = new Case(this.name, caseid, surgeon, anesthesiologist, procedure)
       this.cases.push(thisCase)
-
-      ORMaster(thisCase)
-      // console.log(thisCase)
+      console.log(this.cases);
+      // ORMaster(thisCase)
       // debugger
       //I want to push 'this' to fetch post the object every time a new case is made. 'this' being the entire OR and all of it's cases.
 

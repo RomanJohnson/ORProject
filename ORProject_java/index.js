@@ -46,8 +46,8 @@ ORMaster(orName.value, orAddress.value, orHost.value);
     var procedure_name = $('#procedure_name').val();
     var or_id = $('#or_id').val();
     var case_time = $('#case_time').val();
-    var id = 1;
-    var data = {case: {surgeon_id,anesthesiologist,procedure_name,or_id,case_time,id }};
+    // var id = 1;
+    var data = {case: {surgeon_id,anesthesiologist,procedure_name,or_id,case_time }};
     // let or = OR.all()[0]//find the real or object by name orsAll.find later
     console.log(data)
     // data cases
@@ -55,7 +55,7 @@ ORMaster(orName.value, orAddress.value, orHost.value);
     $.ajax({
       url: "http://localhost:3000/api/v1/ors/"+ or_id +"/cases",
       type: "POST",
-      data: JSON.stringify(data),
+      data: data,
       success: function(e) {
       console.log(e);}
       });

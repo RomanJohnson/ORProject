@@ -6,7 +6,7 @@ const OR = (function(){
     // let casesId = 0
 
     constructor (ORName, ORAddress){
-      let caseID = 0
+      // let caseID = 0
       this.address = ORAddress
       this.cases = []
       this.name = ORName;
@@ -43,8 +43,9 @@ const OR = (function(){
 
      makeNewCase(surgeon, anesthesiologist, procedure, caseTime, orId){
 
-      let caseid = (this.cases.length +1)
-      let thisCase = new Case(this.name, caseid, surgeon, anesthesiologist, procedure)
+      //let caseid = (this.cases.length +1)
+      let thisCase = new Case(this.name, surgeon, anesthesiologist, procedure)
+      //removed caseid from new Case
       this.cases.push(thisCase)
       console.log(this.cases);
       // ORMaster(thisCase)
